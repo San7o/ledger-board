@@ -7,6 +7,22 @@ I initialized the developement environment with flakes:
 nix flake init --template github:MordragT/nix-templates#python-venv
 ```
 
+## Angular
+
+With npm, I created a new project and installed angular-cli with
+```bash
+npm i @angular/cli --latest --save-dev
+```
+I then created a new Angular project
+```bash
+npx ng new my-app
+```
+You can run Angular with
+```bash
+npx ng serve --open
+```
+
+
 ## Django
 I instelled django version 5.0.6 through `requirements.txt` and running:
 ```bash
@@ -52,7 +68,7 @@ urlpatterns = [
 ]
 ```
 
-And we add the irl to the backend server in `backend/urls`:
+And we add the url to the backend server in `backend/urls`:
 ```python
 from django.contrib import admin
 from django.urls import include, path

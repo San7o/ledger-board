@@ -19,6 +19,12 @@
         name = "python-venv";
         venvDir = "./.venv";
         buildInputs = [
+
+          # Frontend dependencies
+          pkgs.nodejs_21
+
+
+          # Backend dependencies
           # A Python interpreter including the 'venv' module is required to bootstrap
           # the environment.
           pythonPackages.python
@@ -35,7 +41,7 @@
         # Run this command, only after creating the virtual environment
         postVenvCreation = ''
           unset SOURCE_DATE_EPOCH
-          pip install -r requirements.txt
+          pip install -r backend/requirements.txt
         '';
 
         # Now we can execute any commands within the virtual environment.

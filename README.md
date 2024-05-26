@@ -31,3 +31,16 @@ If you don't have nix, you nee to have `python3` and you need to install all the
 ```bash
 pip install -r requirements.txt
 ```
+
+### Running the project
+
+You can run the backend with the following command:
+```bash
+cd backend
+python3 manage.py runserver 
+```
+You can run the frontend with the following command, assuming you have installed the modules via `npm i`:
+```bash
+cd frontend
+npx ng serve --open
+```
