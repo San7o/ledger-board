@@ -20,3 +20,14 @@ This project aims to build a web app visualizer for personal finance data, saved
 - deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
 - fully github workflow with issues, roadmap and milestones
 
+## Developement
+
+We strongly encourage to use Nix to have a consistant developement environment across devices. You can enter the developement environmenti with the following command:
+```bash
+nix develop
+```
+
+If you don't have nix, you nee to have `python3` and you need to install all the dependencies. You can use the command:
+```bash
+pip install -r requirements.txt
+```

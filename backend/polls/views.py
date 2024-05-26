@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import json
 
 # Create your views here.
 def greet(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse(json.dumps({"message": "Hello, world from backend!"}), content_type="application/json")
 
 from .models import Question
 

@@ -188,4 +188,38 @@ def vote(request, question_id):
 
 ### Automated Testing
 
-https://docs.djangoproject.com/en/5.0/intro/tutorial05/
+Example tests in `polls/tests.py`
+```python
+from .models import Question
+
+class QuestionModelTests(TestCase):
+    def test_was_published_recently_with_future_question(self):
+        """
+        was_published_recently() returns False for questions whose pub_date
+        is in the future.
+        """
+        time = timezone.now() + datetime.timedelta(days=30)
+        future_question = Question(pub_date=time)
+        self.assertIs(future_question.was_published_recently(), False)
+```
+
+Run the tests
+```bash
+python manage.py test polls
+```
+
+We can use the shell to write quickly the test
+```bash
+python3 manage.py shell
+```
+
+Test web views:
+```python
+from django.test import Client
+
+client = Client()
+
+response = client.get("")
+response.status_code
+response.content
+```
