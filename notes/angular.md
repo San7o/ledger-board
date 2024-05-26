@@ -453,7 +453,7 @@ You can format date or time or any string into any format.
 ### Create your own pipe
 Add `@Pipe` decorator and define the function
 `reverse.pipe.ts`
-```javscript
+```javascript
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
