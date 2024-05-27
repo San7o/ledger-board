@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  ledger-board-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.production
+
+    user: "${UID}:${GID}"
+    networks:
+      ledger-board-network:
+        ipv4_address: ${LEDGER_BOARD_BACKEND}
+    ports:
+      - "8000:8000"
+
+  ledger-board-frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.production
+    user: "${UID}:${GID}"
+    networks:
+      ledger-board-network:
+        ipv4_address: ${LEDGER_BOARD_FRONTEND}
+    ports:
+      - "4200:4200"
+    environment:
+      - BACKEND_IP=${LEDGER_BOARD_BACKEND}
+
+  ledger-board-nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      ledger-board-network:
+        ipv4_address: ${LEDGER_BOARD_NGINX}
+    tty: true
+
+networks:
+ ledger-board-network:
+   ipam:
+     driver: default
+     config:
+       - subnet: ${SUBNET_IP}

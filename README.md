@@ -12,7 +12,7 @@ I am creating this application as a practice project to learn more about
 This project aims to build a web app visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format. The application will use **neural networks** to predict the next transactions. The application will use the following technologies:
 - [x] backend: python (Django)
 - [x] frontend: Angular
-- [x] Gunicorn for serving WSGI server
+- [x] Gunicorn for performant WSGI
 - [x] Nginx as load manager and proxy
 - [ ] database: Redis
 - [ ] big data management: Spark, kafka,
@@ -20,7 +20,6 @@ This project aims to build a web app visualizer for personal finance data, saved
 - [ ] some kind of linter
 - [ ] unit tests
 - [ ] fully github workflow with issues, roadmap and milestones
-- [ ] Nginx to manage apis
 
 Deploy / Infrastructure
 - [x] Containerized with docker
@@ -61,12 +60,13 @@ cd frontend
 npx ng serve --open
 ```
 
-## Build the application
-Build the docker image:
+## Develop with docker
+
+Docker is very hand to setup out deve environment. You can build the docker network with:
 ```bash
 sudo docker build .
 ```
-Run the image with docker compose:
+Run the containers with docker compose:
 ```bash
 sudo docker compose up --build
 ```
@@ -74,4 +74,10 @@ This will create 3 images:
 - `frontend` image, accessible via `$LEDGER_BOARD_FRONTEND:4200`
 - `backend` image, accessible via `$LEDGER_BOARD_BACKEND:8000`
 - `nginx` image, accessible via `$LEDGER_BOARD_BACKEND:80`
+
 The environment values are located in `.env`
+
+Those containers use vaolumes, so that they don't copy any data inside. Both frontend and backend automatically restart after you make a change. For production we can't use shared volumes (kubernetes doesn't let us and It's not a good choice). To run the infrastructure for production with docker, run:
+```bash
+sudo docker compose -f docker-compose.production.yaml up --build
+```
