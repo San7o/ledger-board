@@ -44,3 +44,22 @@ You can run the frontend with the following command, assuming you have installed
 cd frontend
 npx ng serve --open
 ```
+
+To run both at the same time, fo inside `frontend` and run:
+```bash
+npm start
+```
+Or use the bash script in the root directory:
+```bash
+./run.sh
+```
+
+## Build the application
+Build the docker image:
+```bash
+sudo docker build .
+```
+Run the image with docker compose:
+```bash
+sudo docker compose up --build
+```

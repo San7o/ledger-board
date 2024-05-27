@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  ledger-board:
+    build: .
+    network_mode: "host"
+    ports:
+      - "4200:4200"
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    restart: always

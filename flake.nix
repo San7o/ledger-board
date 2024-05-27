@@ -20,6 +20,8 @@
         venvDir = "./.venv";
         buildInputs = [
 
+          pkgs.kind      # tool to manage k8s resources
+
           # Frontend dependencies
           pkgs.nodejs_21
 
