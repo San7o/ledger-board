@@ -1,2 +1,2 @@
 #! /bin/sh
-npm frontend start
+npm --prefix frontend start
