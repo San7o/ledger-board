@@ -1,5 +1,5 @@
 """
-WSGI config for backend project.
+WSGI config for backend project, It stands for Web Server Gateway Interface. It is a specification that describes how a web server communicates with web applications, and how web applications can be chained together to process one request.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

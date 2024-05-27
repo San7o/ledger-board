@@ -10,15 +10,21 @@ I am creating this application as a practice project to learn more about
 ## Project Statement
 
 This project aims to build a web app visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format. The application will use **neural networks** to predict the next transactions. The application will use the following technologies:
-- backend: python (Django)
-- frontend: Angular
-- database: Redis
-- big data management: Spark, kafka,
-- some kind of linter
-- structured logging: sentry, jsonlogs
-- unit tests
-- deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
-- fully github workflow with issues, roadmap and milestones
+- [x] backend: python (Django)
+- [x] frontend: Angular
+- [x] Gunicorn for serving WSGI server
+- [ ] Nginx as load manager and proxy
+- [ ] database: Redis
+- [ ] big data management: Spark, kafka,
+- [ ] structured logging: sentry, jsonlogs
+- [ ] some kind of linter
+- [ ] unit tests
+- [ ] fully github workflow with issues, roadmap and milestones
+- [ ] Nginx to manage apis
+Deploy / Infrastructure
+- [x] Containerized with docker
+- [ ] deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
+- [ ] managing with Terraform
 
 ## Developement
 
@@ -34,12 +40,16 @@ pip install -r requirements.txt
 
 ### Running the project
 
-You can run the backend with the following command:
+You can run the backend in developement mode with the following command:
 ```bash
-cd backend
-python3 manage.py runserver 
+python3 backend/manage.py runserver 
 ```
-You can run the frontend with the following command, assuming you have installed the modules via `npm i`:
+For deployment, use a WSGI server:
+```bash
+gunicorn --chdir backend backend.wsgi
+```
+
+You can run the frontend with the following command, after you have installed necessary modules via `npm i`:
 ```bash
 cd frontend
 npx ng serve --open
