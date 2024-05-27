@@ -16,14 +16,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class GreetComponent {
 
-    apiUrl: string = 'http://localhost:8000/api/greet';
     message: string = '';
 
     constructor(private http: HttpClient) { }
 
     // Make request to backend
     callApi(): void {
-        this.http.get<JSON>(this.apiUrl).subscribe((data: JSON) => {
+        this.http.get<JSON>("/api/greet").subscribe((data: JSON) => {
             this.message = JSON.stringify(data);
             console.log(data);
         },
