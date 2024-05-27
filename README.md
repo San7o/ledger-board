@@ -33,7 +33,12 @@ We strongly encourage to use Nix to have a consistant developement environment a
 nix develop
 ```
 
-If you don't have nix, you nee to have `python3` and you need to install all the dependencies. You can use the command:
+If you don't have nix, you nee to have `python3` and you need to install all the dependencies.
+You can use a virtual environment to download dependencies, you can place the environment to `backend/` folder bit It's up to what your preference.
+```bash
+python3 -m venv backend/
+```
+You can install dependencies via pip:
 ```bash
 pip install -r requirements.txt
 ```
@@ -44,7 +49,7 @@ You can run the backend in developement mode with the following command:
 ```bash
 python3 backend/manage.py runserver 
 ```
-For deployment, use a WSGI server:
+For deployment, use gunicorn:
 ```bash
 gunicorn --chdir backend backend.wsgi
 ```
@@ -53,15 +58,6 @@ You can run the frontend with the following command, after you have installed ne
 ```bash
 cd frontend
 npx ng serve --open
-```
-
-To run both at the same time, fo inside `frontend` and run:
-```bash
-npm start
-```
-Or use the bash script in the root directory:
-```bash
-./run.sh
 ```
 
 ## Build the application
@@ -73,3 +69,8 @@ Run the image with docker compose:
 ```bash
 sudo docker compose up --build
 ```
+This will create 3 images:
+- `frontend` image, accessible via `$LEDGER_BOARD_FRONTEND:4200`
+- `backend` image, accessible via `$LEDGER_BOARD_BACKEND:8000`
+- `nginx` image, accessible via `$LEDGER_BOARD_BACKEND:80`
+The environment values are located in `.env`

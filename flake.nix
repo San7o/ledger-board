@@ -17,7 +17,7 @@
     in {
       devShells.default = pkgs.mkShell {
         name = "python-venv";
-        venvDir = "./.venv";
+        venvDir = "backend/.venv";
         buildInputs = [
 
           pkgs.kind      # tool to manage k8s resources
@@ -45,6 +45,7 @@
           unset SOURCE_DATE_EPOCH
           pip install -r backend/requirements.txt
         '';
+
 
         # Now we can execute any commands within the virtual environment.
         # This is optional and can be left out to run pip manually.
