@@ -13,7 +13,7 @@ This project aims to build a web app visualizer for personal finance data, saved
 - [x] backend: python (Django)
 - [x] frontend: Angular
 - [x] Gunicorn for serving WSGI server
-- [ ] Nginx as load manager and proxy
+- [x] Nginx as load manager and proxy
 - [ ] database: Redis
 - [ ] big data management: Spark, kafka,
 - [ ] structured logging: sentry, jsonlogs
@@ -21,6 +21,7 @@ This project aims to build a web app visualizer for personal finance data, saved
 - [ ] unit tests
 - [ ] fully github workflow with issues, roadmap and milestones
 - [ ] Nginx to manage apis
+
 Deploy / Infrastructure
 - [x] Containerized with docker
 - [ ] deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
@@ -45,13 +46,13 @@ pip install -r requirements.txt
 
 ### Running the project
 
-You can run the backend in developement mode with the following command:
+You can run the backend in developement mode with the following command inside `backend/`:
 ```bash
-python3 backend/manage.py runserver 
+python3 manage.py runserver 
 ```
 For deployment, use gunicorn:
 ```bash
-gunicorn --chdir backend backend.wsgi
+gunicorn -c gunicorn.conf.py backend.wsgi
 ```
 
 You can run the frontend with the following command, after you have installed necessary modules via `npm i`:
