@@ -25,7 +25,7 @@
           pkgs.kompose   # convert docker-compose to k8s
 
           # Frontend dependencies
-          pkgs.nodejs_21
+          pkgs.nodejs_20
 
 
           # Backend dependencies

@@ -10,19 +10,14 @@ services:
     networks:
       ledger-board-network:
         ipv4_address: ${LEDGER_BOARD_BACKEND}
-    ports:
-      - "8000:8000"
 
   ledger-board-frontend:
     build: 
       context: ./frontend
       dockerfile: Dockerfile.production
-    user: "${UID}:${GID}"
     networks:
       ledger-board-network:
         ipv4_address: ${LEDGER_BOARD_FRONTEND}
-    ports:
-      - "4200:4200"
     environment:
       - BACKEND_IP=${LEDGER_BOARD_BACKEND}
 
