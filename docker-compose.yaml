@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  ledger-board-backend:
+  backend:
     build: ./backend
     user: "${UID}:${GID}"
     networks:
@@ -13,7 +13,7 @@ services:
       - ./backend:/home/docker/app
     tty: true
 
-  ledger-board-frontend:
+  frontend:
     build: ./frontend
     user: "${UID}:${GID}"
     networks:
@@ -26,13 +26,11 @@ services:
     environment:
       - BACKEND_IP=${LEDGER_BOARD_BACKEND}
 
-  ledger-board-nginx:
+  nginx:
     build: ./nginx
     ports:
       - "80:80"
-    networks:
-      ledger-board-network:
-        ipv4_address: ${LEDGER_BOARD_NGINX}
+    network_mode: "host"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     tty: true

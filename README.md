@@ -81,6 +81,11 @@ You also need docker to run nginx and for production
 
 ## Develop with docker
 
+First, make sure you have the correct npm modules installed:
+```bash
+cd frontend && npm i
+```
+
 Docker is very handy to setup our dev environment. You can build the docker network with:
 ```bash
 sudo docker build .
@@ -102,6 +107,12 @@ Those containers use volumes, so that they don't copy any data inside: both fron
 
 # Run in Production
 
+First, mae sure you have build the frontend for production:
+```bash
+cd frontend && npm i
+npx ng build --configuration=production
+```
+
 For production we can't use shared volumes (kubernetes doesn't let us and It's not a good choice), to run the infrastructure for production with docker, run:
 ```bash
 sudo docker compose -f docker-compose.production.yaml up --build
@@ -111,4 +122,33 @@ There are different docker configs for production for each container, those cont
 - the frontend uses nginx to serve static files
 - nginx is used as cache and proxy. The cache is only effective when running in production.
 
+## Deploy with kubernetes
 
+You need `kind` installed for local test deploy. First, create a cluster with the following command:
+```bash
+cd kubernetes &&
+sudo kind create cluster --name ledger-board-cluster --config kubernetes-config.yaml
+```
+Then load the docker images:
+```bash
+sudo kind load docker-image ledger-board-nginx --name ledger-board-cluster
+sudo kind load docker-image ledger-board-backend --name ledger-board-cluster
+sudo kind load docker-image ledger-board-backend --name ledger-board-cluster
+```
+In actual procuction, you would have to publish the images in some repo. This also enables easy CD.
+
+Load the pod and a service with:
+```bash
+sudo kubectl apply -f ledger-board-nginx-service.yaml
+sudo kubectl apply -f ledger-board-pod.yaml
+```
+Check pod status:
+```bash
+sudo kubectl get pods
+```
+Test by connecting to nginx:
+```bash
+sudo kubectl port-forward ledger-board-application 80:80
+```
+
+More verbose explaination can be found in `kubernetes/README.md`

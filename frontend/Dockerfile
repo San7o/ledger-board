@@ -1,4 +1,3 @@
-#FROM nikolaik/python-nodejs:python3.11-nodejs22
 FROM node:22-bookworm
 
 WORKDIR /home/docker/app

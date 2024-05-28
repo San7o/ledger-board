@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ledger-board-application
+spec:
+
+  restartPolicy: Never
+
+  # Delcaring shared modules
+  # I can mount the volumes on the single containers
+  # volumes:
+  #   - name: shared-data
+  #     emptyDir: {}
+  
+  containers:
+
+    - name: ledger-board-backend
+      image: ledger-board-backend
+      imagePullPolicy: Never
+      ports:
+      - containerPort: 8000
+
+    - name: ledger-board-frontend
+      image: ledger-board-frontend
+      imagePullPolicy: Never
+      ports:
+      - containerPort: 4200
+
+    - name: ledger-board-nginx
+      image: ledger-board-nginx
+      imagePullPolicy: Never
+      ports:
+      - containerPort: 80

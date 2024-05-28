@@ -1,33 +1,34 @@
 version: "3"
 
 services:
-  ledger-board-backend:
+  backend:
     build:
       context: ./backend
       dockerfile: Dockerfile.production
-
+    ports:
+      - "8000:8000"
     user: "${UID}:${GID}"
     networks:
       ledger-board-network:
         ipv4_address: ${LEDGER_BOARD_BACKEND}
 
-  ledger-board-frontend:
+  frontend:
     build: 
       context: ./frontend
       dockerfile: Dockerfile.production
+    ports:
+      - "4200:4200"
     networks:
       ledger-board-network:
         ipv4_address: ${LEDGER_BOARD_FRONTEND}
     environment:
       - BACKEND_IP=${LEDGER_BOARD_BACKEND}
 
-  ledger-board-nginx:
+  nginx:
     build: ./nginx
     ports:
       - "80:80"
-    networks:
-      ledger-board-network:
-        ipv4_address: ${LEDGER_BOARD_NGINX}
+    network_mode: "host"
     tty: true
 
 networks:

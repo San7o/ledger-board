@@ -11,17 +11,41 @@ a kubernetes cluster is made of **Control Pane Nodes** and **Worker Nodes**:
 - `Control Pane Nodes`: administrate the cluster (the other worker nodes). There are usually multiple control pane nodes
 - `Worker Node`: the machine where you application workloads run
 
-**Create the cluster**
+## Create the cluster
+
+First, you need to create a test cluster. I use `kind` which creates a local deploy of kubernetes with docker. I'ts the fastest and lightest way to create a test cluster on ypur machine. To create a cluster with kind, run teh gollowing command:
 ```bash
-kind create cluster --name ledger-board-cluster --config ../kubernetes-config.yaml
+kind create cluster --name ledger-board-cluster --config kubernetes-config.yaml
 ```
 
-**Deploy**
+## Using docker images in the cluster
+
+To use local docker images (not pulled from some reposiroty) we first need to create the images (with "docker build" or "docker compose up") and load. Run the following command to lead the 3 images:
+```bash
+sudo kind load docker-image ledger-board-nginx --name ledger-board-cluster
+sudo kind load docker-image ledger-board-backend --name ledger-board-cluster
+sudo kind load docker-image ledger-board-backend --name ledger-board-cluster
+```
+
+## Apply a configuration
+To deploy in the cluster we can use the following command:
 ```bash
 sudo kubectl apply -f kubernetes/
 ```
 
-## useful commands
+This configuration creates a pod with the 3 docker images. A pod puts all the images on the same network accessible via localhost. To check that the images are running in the nodes, run:
+```bash
+sudo kubectl get pods
+```
+It should say they are all "Running"
+
+To remove something (either a pod, service, ...) you can use:
+```bash
+sudo kubectl delete <service | pod | ... > <name>
+```
+
+## some useful commands
+
 List all nodes in the cluster along with their status
 ```basj
 kubectl get nodes
