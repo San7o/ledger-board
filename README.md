@@ -29,7 +29,7 @@ The application will use the following technologies:
 Deploy / Infrastructure
 - [x] Containerized with docker
 - [x] Production infrastructure
-- [ ] Deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
+- [x] Deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
 - [ ] Managing with Terraform
 
 ## Developement
