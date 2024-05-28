@@ -45,3 +45,8 @@ Export logs:
 ```bash
 kind export logs ./somedir
 ```
+
+Convert from docker compose to kunernetes:
+```bash
+kompose convert
+```

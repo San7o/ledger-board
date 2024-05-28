@@ -107,7 +107,7 @@ For production we can't use shared volumes (kubernetes doesn't let us and It's n
 sudo docker compose -f docker-compose.production.yaml up --build
 ```
 There are different docker configs for production for each container, those contain the string `.production` in the name.
-- the backend uses gunicord
+- the backend uses gunicorn
 - the frontend uses nginx to serve static files
 - nginx is used as cache and proxy. The cache is only effective when running in production.
 

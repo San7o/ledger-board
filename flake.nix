@@ -23,6 +23,7 @@
           # Kubernetes dependencies
           pkgs.kind      # tool to manage k8s resources
           pkgs.kompose   # convert docker-compose to k8s
+          pkgs.kubectl   # k8s command line tool
 
           # Frontend dependencies
           pkgs.nodejs_20
