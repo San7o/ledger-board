@@ -34,19 +34,26 @@ Deploy / Infrastructure
 
 ## Developement
 
-We strongly encourage to use Nix to have a consistant developement environment across devices. You can enter the developement environmenti with the following command:
+We strongly encourage to use Nix to have a consistant developement environment across devices.
+
+You can enter the developement environmenti with the following command:
 ```bash
 nix develop
 ```
 
-If you don't have nix, you nee to have `python3` and you need to install all the dependencies.
-You can use a virtual environment to download dependencies, you can place the environment to `backend/` folder bit It's up to what your preference.
+If you don't have nix, you need to have `python3` and `node 20` and to install all the dependencies.
+
+You can use a virtual environment to download dependencies, you can place the environment to `backend/` folder but It's up to your preference.
 ```bash
 python3 -m venv backend/
 ```
-You can install dependencies via pip:
+You can install dependencies for python via pip:
 ```bash
-pip install -r requirements.txt
+cd backend && pip install -r requirements.txt
+```
+Yon can install delendencies for Node via npm
+```bash
+cd forntend && npm i
 ```
 
 ### Running the project
@@ -60,15 +67,17 @@ For production, use gunicorn:
 gunicorn -c gunicorn.conf.py backend.wsgi
 ```
 
-You can run the frontend with the following command, after you have installed necessary modules via `npm i`:
+You can run the frontend in dev mode with the following command:
 ```bash
 cd frontend
 npx ng serve --open
 ```
-Or you can build for production with:
+Or build for production with:
 ```build
 npx ng build --configuration=production
 ```
+You also need docker to run nginx and for production
+
 
 ## Develop with docker
 
@@ -80,7 +89,7 @@ Run the containers with docker compose:
 ```bash
 sudo docker compose up --build
 ```
-This will create 3 images:
+This will create and run 3 containers:
 - `frontend` image, runnin in `$LEDGER_BOARD_FRONTEND:4200`
 - `backend` image, running in `$LEDGER_BOARD_BACKEND:8000`
 - `nginx` image, running in `$LEDGER_BOARD_BACKEND:80`
@@ -97,4 +106,9 @@ For production we can't use shared volumes (kubernetes doesn't let us and It's n
 ```bash
 sudo docker compose -f docker-compose.production.yaml up --build
 ```
-There are different dockeer configs for production for each container, those contain the string `.production` in the name
+There are different docker configs for production for each container, those contain the string `.production` in the name.
+- the backend uses gunicord
+- the frontend uses nginx to serve static files
+- nginx is used as cache and proxy. The cache is only effective when running in production.
+
+
