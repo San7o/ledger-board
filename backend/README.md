@@ -22,10 +22,11 @@ With `python3 manage.py` we can access many commands for administration purposes
 
 For producttion we need to use a more performant WSGI. This project uses `gunicorn`. You can run the server with a configuration file with the following command:
 ```bash
-gunicorn -c gunicorn.conf.py backend.wsgi:application
+gunicorn -c gunicorn.conf.py backend.asgi:application -k uvicorn.workers.UvicornWorker
 ```
 - `gunicorn.conf.py` is the config file. We specify the number of workers, threads, security and other values.
-- `backend.wsgi` is the entry point for the application
+- `backend.asgi` is the entry point for the application
+- `-k uvicorn.workers.UviconrWorker` use uvicorn for async requests
 
 ## Django
 

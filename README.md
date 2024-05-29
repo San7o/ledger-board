@@ -13,7 +13,7 @@ This project aims to build a web app visualizer for personal finance data, saved
 
 The application will use the following technologies:
 - [x] `backend`: Django
-- [x] `backend WSGI`: Gunicorn
+- [x] `backend ASGI`: Uvicorn
 - [x] `frontend`: Angular
 - [x] `Nginx`:
     - [x] Cache
@@ -61,9 +61,9 @@ You can run the backend in developement server with the following command inside
 ```bash
 python3 manage.py runserver 
 ```
-For production, use gunicorn:
+For production, use gunicorn + uvicorn:
 ```bash
-gunicorn -c gunicorn.conf.py backend.wsgi
+gunicorn -c gunicorn.conf.py backend.asgi -k uvicorn.worker.UvicornWorker
 ```
 
 You can run the frontend in dev mode with the following command:
@@ -85,24 +85,23 @@ First, make sure you have the correct npm modules installed:
 cd frontend && npm i
 ```
 
-Docker is very handy to setup our dev environment. You can build the docker network with:
-```bash
-sudo docker build .
-```
+Docker is very handy to setup our dev environment. 
+
 Run the containers with docker compose:
 ```bash
 sudo docker compose up --build
 ```
-This will create and run 3 containers:
+This will create and run 4 containers:
 - `frontend` image, runnin in `$LEDGER_BOARD_FRONTEND:4200`
 - `backend` image, running in `$LEDGER_BOARD_BACKEND:8000`
-- `nginx` image, running in `$LEDGER_BOARD_BACKEND:80`
+- `nginx` image, running in `$LEDGER_BOARD_NGINX:80`
+- `redit` image, running in `$LEDGER_BOARD_REDIS:6379`
 
 You should use the nginx server to test the application. It's also the only one connected to the host network when running in production.
 
 The environment values are located in `.env`
 
-Those containers use volumes, so that they don't copy any data inside: both frontend and backend automatically restart after you make a change in the code. This is very handy but avaiavle only for developement, we need a different infrastructure for production. 
+Those containers use volumes, so that they don't copy any data inside: both frontend and backend automatically restart after you make a change in the code. This is very handy but available only for developement, we need a different infrastructure for production. 
 
 # Run in Production
 
