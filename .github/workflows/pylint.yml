@@ -20,4 +20,4 @@ jobs:
         pip3 install -r backend/requirements.txt
     - name: Analysing the code with pylint
       run: |
-        cd backend && prospector
+        cd backend && prospector -X
