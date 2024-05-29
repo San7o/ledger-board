@@ -18,3 +18,9 @@ limit_request_field_size = 8190
 preload_app = True
 worker_tmp_dir = '/dev/shm'
 worker_connections = 1000
+
+from backend.settings import LOGGING
+
+# Logging
+logconfig_dict = LOGGING
+logconfig_dict['handlers']['file']['filename'] = "./.logs/gunicorn-logs.log"

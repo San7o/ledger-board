@@ -13,17 +13,17 @@ This project aims to build a web app visualizer for personal finance data, saved
 
 The application will use the following technologies:
 - [x] `backend`: Django
+- [x] `backend WSGI`: Gunicorn
 - [x] `frontend`: Angular
-- [x] `Gunicorn`: performant WSGI
 - [x] `Nginx`:
     - [x] Cache
     - [x] Static content server for frontend
     - [x] Proxy
 - [x] `database`: Redis
-- [ ] `big data management`: Spark, kafka,
-- [ ] `structured logging`: sentry, jsonlogs
+- [x] `structured logging`: jsonlogs
 - [ ] `linter`
 - [ ] `unit tests`
+- [ ] `big data management`: Spark, kafka,
 - [ ] full `github` workflow with issues, roadmap and milestones
 
 Deploy / Infrastructure
@@ -152,4 +152,4 @@ sudo kubectl port-forward ledger-board-application 80:80
 
 More verbose explaination can be found in `kubernetes/README.md`
 
-Note: We are not using the database inside the local cluster, since It's much more stable do use a well known distributed DB probider. The connection to the DB shall be made to the provider. So far, I didn't set up any online instance so the kubernetes cluster won't be able to connect to the DB.
+Note: We are not using a database inside the local cluster, since It's much more stable to use a well known distributed DB provider. The connection to the DB shall be made to the provider. So far, I didn't set up any online instance so the kubernetes cluster won't be able to connect to the DB.

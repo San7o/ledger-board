@@ -3,4 +3,5 @@ __pycache__
 dist
 .direnv/
 .venv/
+.logs/
 persistent_storage/

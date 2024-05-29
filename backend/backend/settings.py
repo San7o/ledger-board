@@ -127,3 +127,49 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Logging configuration ----------------------------------
+
+import os
+import pythonjsonlogger 
+
+# Logging is saved in json on the file and 
+# printend in simple format on the console
+
+LOGGING_LEVEL = 'INFO'
+LOG_FILE = os.path.join(BASE_DIR, '.logs/app-logs.log')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'json': {
+            '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
+            'format': '%(asctime)s %(levelname)s %(name)s %(message)s %(pathname)s %(lineno)d',
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': LOGGING_LEVEL,
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',  # Use 'json' formatter
+        },
+        'file': {
+            'level': LOGGING_LEVEL,
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+            'formatter': 'json',  # Use 'json' formatter
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': LOGGING_LEVEL,
+            'propagate': True,
+        },
+    },
+}
