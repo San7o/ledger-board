@@ -9,7 +9,7 @@ I am creating this application as a practice project to learn more about
 
 ## Project Statement
 
-This project aims to build a web app visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format. The application will use **neural networks** to predict the next transactions. 
+This project aims to build a web app visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format. The application will use **neural networks** to predict the next transactions.
 
 The application will use the following technologies:
 - [x] `backend`: [Django](https://docs.djangoproject.com/en/5.0/)
@@ -42,7 +42,7 @@ nix develop
 
 ### Dependencies
 
-If you don't have Nix, you need to have `python3` and `node 20` and to install all the dependencies.
+If you don't have Nix, you need to have `python3.11` and `node 20` and to install all the dependencies.
 
 You can use a python virtual environment to download backend dependencies, you can place the environment to `backend/` folder but It's up to your preference.
 ```bash
@@ -62,7 +62,7 @@ cd forntend && npm i
 
 You can run the backend in developement server with the following command inside `backend/`:
 ```bash
-python3 manage.py runserver 
+python3 manage.py runserver
 ```
 For production, use gunicorn + uvicorn:
 ```bash
@@ -100,7 +100,7 @@ First, make sure you have the correct npm modules installed:
 cd frontend && npm i
 ```
 
-Docker is very handy to setup our dev environment. 
+Docker is very handy to setup our dev environment.
 
 Run the containers with docker compose:
 ```bash
@@ -116,7 +116,7 @@ You should use the nginx server to test the application. It's also the only one 
 
 The environment values are located in `.env`
 
-Those containers use volumes, so that they don't copy any data inside: both frontend and backend automatically restart after you make a change in the code. This is very handy but available only for developement, we need a different infrastructure for production. 
+Those containers use volumes, so that they don't copy any data inside: both frontend and backend automatically restart after you make a change in the code. This is very handy but available only for developement, we need a different infrastructure for production.
 
 # Run in Production
 

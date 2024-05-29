@@ -37,4 +37,3 @@ sudo docker stop <container_id>
 sudo docker rm <container_id>
 docker exec -it <container_id> bash
 ```
-

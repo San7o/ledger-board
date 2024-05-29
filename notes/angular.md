@@ -48,7 +48,7 @@ export class AppComponent {
 ```
 
 Event handling
-```javascript 
+```javascript
 @Component({
     ...
     template: `<button (click)="greet()">`
@@ -126,7 +126,7 @@ Ouput()
 })
 export class ChildComponent {
   @Output() addItemEvent = new EventEmitter<string>();
-  
+
   addItem() {
     this.addItemEvent.emit('nuovo');
   }
@@ -155,7 +155,7 @@ export class AppComponent {
 
 Defer: load on an event. `on viewport` means when the content is viewed
 ```javascript
-    @defer (on viewport) { 
+    @defer (on viewport) {
       <comments />
     } @placeholder {
       <p>FUTURE COMMENTS</p>
@@ -181,7 +181,7 @@ import { NgOptimizedImage, provideImgixLoader } from '@angular/common';
         Static Image:
 
         <!-- priority -->
-        <img ngSrc="/assets/logo.svg" alt="Angular logo" priority/> 
+        <img ngSrc="/assets/logo.svg" alt="Angular logo" priority/>
       </li>
       <li>
         Dynamic Image:
@@ -284,7 +284,7 @@ export class UserComponent {
   favoriteFramework = '';
 }
 ```
-Note: The syntax [()] is known as "banana in a box" but it represents two-way binding: property binding and event binding. 
+Note: The syntax [()] is known as "banana in a box" but it represents two-way binding: property binding and event binding.
 call function:
 ```javascript
 import {Component} from '@angular/core';
@@ -345,14 +345,14 @@ export class AppComponent {
     email: new FormControl(''),
   });
 
-        
+
   handleSubmit() {
     alert(
       this.profileForm.value.name + ' | ' + this.profileForm.value.email
     );
   }
 
-    
+
 }
 ```
 
@@ -421,7 +421,7 @@ export class AppComponent {
   display = '';
 
   carService = inject(CarService);
-  
+
   constructor() {
     this.display = this.carService.getCars().join(' ');
   }

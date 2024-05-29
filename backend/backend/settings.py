@@ -133,7 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Logging configuration ----------------------------------
 
 
-# Logging is saved in json on the file and 
+# Logging is saved in json on the file and
 # printend in simple format on the console
 
 LOGGING_LEVEL = 'INFO'

@@ -25,7 +25,7 @@
           pkgs.kompose   # convert docker-compose to k8s
           pkgs.kubectl   # k8s command line tool
 
-        
+
           # Database dependencies
           pkgs.redis
 

@@ -11,7 +11,7 @@ spec:
   # volumes:
   #   - name: shared-data
   #     emptyDir: {}
-  
+
   containers:
 
     - name: ledger-board-backend
