@@ -19,7 +19,7 @@ The application will use the following technologies:
     - [x] Cache
     - [x] Static content server for frontend
     - [x] Proxy
-- [ ] `database`: Redis
+- [x] `database`: Redis
 - [ ] `big data management`: Spark, kafka,
 - [ ] `structured logging`: sentry, jsonlogs
 - [ ] `linter`
@@ -30,7 +30,6 @@ Deploy / Infrastructure
 - [x] Containerized with docker
 - [x] Production infrastructure
 - [x] Deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
-- [ ] Managing with Terraform
 
 ## Developement
 
@@ -152,3 +151,5 @@ sudo kubectl port-forward ledger-board-application 80:80
 ```
 
 More verbose explaination can be found in `kubernetes/README.md`
+
+Note: We are not using the database inside the local cluster, since It's much more stable do use a well known distributed DB probider. The connection to the DB shall be made to the provider. So far, I didn't set up any online instance so the kubernetes cluster won't be able to connect to the DB.

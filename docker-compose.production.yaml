@@ -31,6 +31,16 @@ services:
     network_mode: "host"
     tty: true
 
+  redis:
+    build: ./redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/persistent_storage:/data
+    networks:
+      ledger-board-network:
+        ipv4_address: ${LEDGER_BOARD_REDIS}
+
 networks:
  ledger-board-network:
    ipam:
