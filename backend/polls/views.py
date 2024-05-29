@@ -1,7 +1,6 @@
 """File contains the views for the Django app."""
 
 # from django.shortcuts import render
-import json
 import logging
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -14,7 +13,7 @@ logger = logging.getLogger('django')
 # Create your views here.
 async def greet(request):
     """Return a JSON response with a greeting."""
-    return JsonResponse(json.dumps({"message": "Hello, world from backend!"}))
+    return JsonResponse({"message": "Hello, world from backend!"})
 
 
 # Query the database to retrive data

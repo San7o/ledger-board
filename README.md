@@ -167,3 +167,9 @@ sudo kubectl port-forward ledger-board-application 80:80
 More verbose explaination can be found in `kubernetes/README.md`
 
 Note: We are not using a database inside the local cluster, since It's much more stable to use a well known distributed DB provider. The connection to the DB shall be made to the provider. So far, I didn't set up any online instance so the kubernetes cluster won't be able to connect to the DB.
+
+# Other tools
+
+You can use other usefil tools like:
+- `pre-commit` to run checks automatically before committing
+- `act` to simulate bithub actions
