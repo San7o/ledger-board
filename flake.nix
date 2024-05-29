@@ -49,6 +49,10 @@
           # add them to PYTHONPATH and thus make
           #them accessible from within the venv.
           # pythonPackages.numpy
+
+          # General Development tools
+          pkgs.act         # github actions simulator
+          pkgs.tig         # git commit viewer
         ];
 
         # Run this command, only after creating the
