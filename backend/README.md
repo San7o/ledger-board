@@ -28,11 +28,18 @@ gunicorn -c gunicorn.conf.py backend.asgi:application -k uvicorn.workers.Uvicorn
 - `backend.asgi` is the entry point for the application
 - `-k uvicorn.workers.UviconrWorker` use uvicorn for async requests
 
-# Linter
+## Linter
 
 I configured a linter, Prospector, which aggregates a certain number of other python linters. Before committing, please run the following to analyze the code inside the backend directory:
 ```bash
 prospector
+```
+
+## Tests
+
+Run tests with:
+```bash
+python3 manage.py test
 ```
 
 ## Django

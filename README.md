@@ -22,7 +22,7 @@ The application will use the following technologies:
 - [x] `database`: [Redis](https://redis.io/)
 - [x] `structured logging`: [python-json-logger](https://pypi.org/project/python-json-logger/)
 - [x] `linter`: [Prospector](https://github.com/landscapeio/prospector) + [ESLint](https://eslint.org/)
-- [ ] `unit tests`
+- [x] `unit tests`
 - [ ] `big data management`: Spark, kafka,
 - [ ] full `github` workflow with issues, roadmap and milestones
 
@@ -33,7 +33,7 @@ Deploy / Infrastructure
 
 ## Developement
 
-We strongly encourage to use Nix to have a consistant developement environment across devices.
+I strongly encourage to use [Nix](https://nixos-and-flakes.thiscute.world/introduction/) to have a consistant developement environment across devices.
 
 You can enter the developement environmenti with the following command:
 ```bash
@@ -42,9 +42,9 @@ nix develop
 
 ### Dependencies
 
-If you don't have nix, you need to have `python3` and `node 20` and to install all the dependencies.
+If you don't have Nix, you need to have `python3` and `node 20` and to install all the dependencies.
 
-You can use a virtual environment to download dependencies, you can place the environment to `backend/` folder but It's up to your preference.
+You can use a python virtual environment to download backend dependencies, you can place the environment to `backend/` folder but It's up to your preference.
 ```bash
 python3 -m venv backend/
 ```
@@ -71,6 +71,10 @@ gunicorn -c gunicorn.conf.py backend.asgi -k uvicorn.worker.UvicornWorker
 [Prospector](https://github.com/landscapeio/prospector) is used as a static code analyzer and linter for python, simply run:
 ```bash
 prospector
+```
+Run unit tests with:
+```bash
+python3 manage.py test
 ```
 
 You can run the frontend in dev mode with the following command:
