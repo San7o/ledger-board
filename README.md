@@ -12,22 +12,22 @@ I am creating this application as a practice project to learn more about
 This project aims to build a web app visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format. The application will use **neural networks** to predict the next transactions. 
 
 The application will use the following technologies:
-- [x] `backend`: Django
-- [x] `backend ASGI`: Uvicorn
-- [x] `frontend`: Angular
+- [x] `backend`: [Django](https://docs.djangoproject.com/en/5.0/)
+- [x] `backend ASGI`: [Uvicorn](https://www.uvicorn.org/)
+- [x] `frontend`: [Angular](https://angular.dev/)
 - [x] `Nginx`:
     - [x] Cache
     - [x] Static content server for frontend
     - [x] Proxy
-- [x] `database`: Redis
-- [x] `structured logging`: jsonlogs
-- [ ] `linter`
+- [x] `database`: [Redis](https://redis.io/)
+- [x] `structured logging`: [python-json-logger](https://pypi.org/project/python-json-logger/)
+- [x] `linter`: [Prospector](https://github.com/landscapeio/prospector) + [ESLint](https://eslint.org/)
 - [ ] `unit tests`
 - [ ] `big data management`: Spark, kafka,
 - [ ] full `github` workflow with issues, roadmap and milestones
 
 Deploy / Infrastructure
-- [x] Containerized with docker
+- [x] Containerized with [Docker](https://www.docker.com/)
 - [x] Production infrastructure
 - [x] Deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
 
@@ -40,6 +40,8 @@ You can enter the developement environmenti with the following command:
 nix develop
 ```
 
+### Dependencies
+
 If you don't have nix, you need to have `python3` and `node 20` and to install all the dependencies.
 
 You can use a virtual environment to download dependencies, you can place the environment to `backend/` folder but It's up to your preference.
@@ -50,6 +52,7 @@ You can install dependencies for python via pip:
 ```bash
 cd backend && pip install -r requirements.txt
 ```
+
 Yon can install delendencies for Node via npm
 ```bash
 cd forntend && npm i
@@ -65,6 +68,10 @@ For production, use gunicorn + uvicorn:
 ```bash
 gunicorn -c gunicorn.conf.py backend.asgi -k uvicorn.worker.UvicornWorker
 ```
+[Prospector](https://github.com/landscapeio/prospector) is used as a static code analyzer and linter for python, simply run:
+```bash
+prospector
+```
 
 You can run the frontend in dev mode with the following command:
 ```bash
@@ -77,6 +84,10 @@ npx ng build --configuration=production
 ```
 You also need docker to run nginx and for production
 
+You can (and should) use a linter with:
+```bash
+npx ng lint
+```
 
 ## Develop with docker
 

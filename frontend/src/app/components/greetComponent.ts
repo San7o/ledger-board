@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from './homeComponent';
 import { RouterLink } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -16,7 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class GreetComponent {
 
-    message: string = '';
+    message = '';
 
     constructor(private http: HttpClient) { }
 

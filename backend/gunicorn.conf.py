@@ -1,4 +1,5 @@
 import multiprocessing
+from backend.settings import LOGGING
 
 # general configuration
 bind = '0.0.0.0:8000'
@@ -18,8 +19,6 @@ limit_request_field_size = 8190
 preload_app = True
 worker_tmp_dir = '/dev/shm'
 worker_connections = 1000
-
-from backend.settings import LOGGING
 
 # Logging
 logconfig_dict = LOGGING

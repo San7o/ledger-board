@@ -14,9 +14,16 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Lint
+
+To use eslint, run
+```bash
+npx ng lint
+```
+
 ## Deploy with docker
 
-You can deploy the frontend via Nginx in a docker image. Run the following commands:
+You can deploy the frontend for production via Nginx in a docker image. Run the following commands:
 ```bash
 sudo docker build -t frontend-nginx --file Dockerfile.production .
 sudo docker run --net host frontend-nginx

@@ -1,0 +1,15 @@
+output-format: emacs
+strictness: veryhigh
+doc-warnings: yes
+ignore-paths:
+  - backend/
+  - manage.py
+  - gunicorn.conf.py
+  - polls/migrations
+  - polls/admin.py
+  - polls/apps.py
+  - polls/__init__.py
+
+pydocstyle:
+  disable:
+    - D211
