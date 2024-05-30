@@ -50,6 +50,10 @@
           #them accessible from within the venv.
           # pythonPackages.numpy
 
+
+          # kafka dependencies
+          pkgs.kafkactl    # interact with kafka
+
           # General Development tools
           pkgs.act         # github actions simulator
           pkgs.tig         # git commit viewer
