@@ -9,7 +9,7 @@ I am creating this application as a practice project to learn more about
 
 ## 📜 Project Statement
 
-This project aims to build visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format, as a web app. The application will use **neural networks** to predict the next transactions. 
+This project aims to build a visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format, as a web app. The application will use **neural networks** to predict the next transactions. 
 
 ## 🗿 Functional Requirements
 
@@ -45,7 +45,7 @@ Deploy / Infrastructure
 - [x] Production infrastructure
 - [x] Deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
 
-## 🏗️ Developement
+# 🏗️ Developement
 
 I strongly encourage to use [Nix](https://nixos-and-flakes.thiscute.world/introduction/) to have a consistant developement environment across devices.
 
@@ -72,7 +72,7 @@ Yon can install delendencies for Node via npm
 cd forntend && npm i
 ```
 
-### 🏁 Running the project
+## 🏁 Running the project
 
 You can run the backend in developement server with the following command inside `backend/`:
 ```bash
