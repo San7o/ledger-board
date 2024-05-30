@@ -95,7 +95,12 @@ sudo kind delete cluster --name ledger-board-cluster
 
 Many many more...
 
+# kafka
+
+There is a special namespace for the kafka cluster, accessible via `-n kafka` frag. for example:
+```bash
+sudo kubectl get pods -n kafka 
+```
 
 ## Todo
-- [ ] kafka is not yet working with kubernetes
 - [ ] add spark to kubernetes

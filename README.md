@@ -100,7 +100,7 @@ Or build for production with:
 ```build
 npx ng build --configuration=production
 ```
-You also need docker to run nginx and for production
+You also need docker to run nginx for production
 
 You can (and should) use a linter with:
 ```bash
@@ -124,7 +124,7 @@ This will create and run 4 containers:
 - `frontend` image, runnin in `$LEDGER_BOARD_FRONTEND:4200`
 - `backend` image, running in `$LEDGER_BOARD_BACKEND:8000`
 - `nginx` image, running in `$LEDGER_BOARD_NGINX:80`
-- `redit` image, running in `$LEDGER_BOARD_REDIS:6379`
+- `redis` image, running in `$LEDGER_BOARD_REDIS:6379`
 
 You should use the nginx server to test the application. It's also the only one connected to the host network when running in production.
 
@@ -186,4 +186,4 @@ Note: We are not using a database inside the local cluster, since It's much more
 
 You can use other usefil tools like:
 - `pre-commit` to run checks automatically before committing
-- `act` to simulate bithub actions
+- `act` to simulate github actions
