@@ -1,17 +1,31 @@
 # ledger-board
 
-## Project Goals
+## 🌠 Project Goals
 
 I am creating this application as a practice project to learn more about
 - big data
-- neural networks
+- neural networks / machine learning
 - web frameworks
 
-## Project Statement
+## 📜 Project Statement
 
-This project aims to build a web app visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format. The application will use **neural networks** to predict the next transactions.
+This project aims to build visualizer for personal finance data, saved in [Ledger](https://github.com/ledger/ledger) format, as a web app. The application will use **neural networks** to predict the next transactions. 
 
-The application will use the following technologies:
+## 🗿 Functional Requirements
+
+The application has two main pages: a "sumbit" page and a "view" page
+
+- the sumbit page will send data of a transaction to the server
+
+- the view page will show all the data in an organized way
+
+The view page must be accessible only after authentication and authorization
+
+The view page will show a prediction of the next transactions
+
+# 📚 The Stack
+
+The application uses the following technologies:
 - [x] `backend`: [Django](https://docs.djangoproject.com/en/5.0/)
 - [x] `backend ASGI`: [Uvicorn](https://www.uvicorn.org/)
 - [x] `frontend`: [Angular](https://angular.dev/)
@@ -24,14 +38,14 @@ The application will use the following technologies:
 - [x] `linter`: [Prospector](https://github.com/landscapeio/prospector) + [ESLint](https://eslint.org/)
 - [x] `unit tests`
 - [x] `big data`: [Spark](https://spark.apache.org/), [kafka](https://kafka.apache.org/)
-- [ ] full `github` workflow with issues, roadmap and milestones
+- [x] full `github` workflow with issues, roadmap and milestones
 
 Deploy / Infrastructure
 - [x] Containerized with [Docker](https://www.docker.com/)
 - [x] Production infrastructure
 - [x] Deploy with [kubernetes](https://github.com/kubernetes/kubernetes)
 
-## Developement
+## 🏗️ Developement
 
 I strongly encourage to use [Nix](https://nixos-and-flakes.thiscute.world/introduction/) to have a consistant developement environment across devices.
 
@@ -40,7 +54,7 @@ You can enter the developement environmenti with the following command:
 nix develop
 ```
 
-### Dependencies
+### 💉 Dependencies
 
 If you don't have Nix, you need to have `python3.11` and `node 20` and to install all the dependencies.
 
@@ -58,7 +72,7 @@ Yon can install delendencies for Node via npm
 cd forntend && npm i
 ```
 
-### Running the project
+### 🏁 Running the project
 
 You can run the backend in developement server with the following command inside `backend/`:
 ```bash
@@ -93,7 +107,7 @@ You can (and should) use a linter with:
 npx ng lint
 ```
 
-## Develop with docker
+## 🐋 Develop with docker
 
 First, make sure you have the correct npm modules installed:
 ```bash
@@ -118,7 +132,7 @@ The environment values are located in `.env`
 
 Those containers use volumes, so that they don't copy any data inside: both frontend and backend automatically restart after you make a change in the code. This is very handy but available only for developement, we need a different infrastructure for production.
 
-# Run in Production
+# ⚰️ Run in Production
 
 First, mae sure you have build the frontend for production:
 ```bash
@@ -135,7 +149,7 @@ There are different docker configs for production for each container, those cont
 - the frontend uses nginx to serve static files
 - nginx is used as cache and proxy. The cache is only effective when running in production.
 
-## Deploy with kubernetes
+## 🛸 Deploy with kubernetes
 
 You need `kind` installed for local test deploy. First, create a cluster with the following command:
 ```bash
@@ -168,7 +182,7 @@ More verbose explaination can be found in `kubernetes/README.md`
 
 Note: We are not using a database inside the local cluster, since It's much more stable to use a well known distributed DB provider. The connection to the DB shall be made to the provider. So far, I didn't set up any online instance so the kubernetes cluster won't be able to connect to the DB.
 
-# Other tools
+# 🧰 Other tools
 
 You can use other usefil tools like:
 - `pre-commit` to run checks automatically before committing
