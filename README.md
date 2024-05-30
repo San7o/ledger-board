@@ -23,7 +23,7 @@ The application will use the following technologies:
 - [x] `structured logging`: [python-json-logger](https://pypi.org/project/python-json-logger/)
 - [x] `linter`: [Prospector](https://github.com/landscapeio/prospector) + [ESLint](https://eslint.org/)
 - [x] `unit tests`
-- [ ] `big data management`: Spark, kafka,
+- [x] `big data`: [Spark](https://spark.apache.org/), [kafka](https://kafka.apache.org/)
 - [ ] full `github` workflow with issues, roadmap and milestones
 
 Deploy / Infrastructure

@@ -57,6 +57,8 @@
           # General Development tools
           pkgs.act         # github actions simulator
           pkgs.tig         # git commit viewer
+          pkgs.cmake       # build system
+
         ];
 
         # Run this command, only after creating the

@@ -94,3 +94,8 @@ sudo kind delete cluster --name ledger-board-cluster
 ```
 
 Many many more...
+
+
+## Todo
+- [ ] kafka is not yet working with kubernetes
+- [ ] add spark to kubernetes
