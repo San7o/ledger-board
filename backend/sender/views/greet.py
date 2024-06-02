@@ -1,8 +1,5 @@
-"""Define the views for the backend receiver."""
+"""The module contains a single function that returns a greeting message."""
 from django.http import JsonResponse
-
-# Create your views here.
-
 
 async def greet(_):
     """Return a JSON response with a greeting."""

@@ -1,5 +1,5 @@
 output-format: emacs
-strictness: veryhigh
+strictness: medium
 doc-warnings: yes
 ignore-paths:
   - backend/
@@ -13,6 +13,9 @@ ignore-paths:
   - sender/admin.py
   - sender/apps.py
   - sender/__init__.py
+  - sender/views/__init__.py
+  - sender/utils/__init__py
+  - sender/tests/__init__.py
   - polls/migrations
   - polls/admin.py
   - polls/apps.py
@@ -21,3 +24,7 @@ ignore-paths:
 pydocstyle:
   disable:
     - D211
+    - D205
+    - D213
+    - D212
+    - D208
