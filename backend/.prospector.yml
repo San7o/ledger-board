@@ -5,6 +5,14 @@ ignore-paths:
   - backend/
   - manage.py
   - gunicorn.conf.py
+  - receiver/migrations
+  - receiver/admin.py
+  - receiver/apps.py
+  - receiver/__init__.py
+  - sender/migrations
+  - sender/admin.py
+  - sender/apps.py
+  - sender/__init__.py
   - polls/migrations
   - polls/admin.py
   - polls/apps.py

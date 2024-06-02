@@ -107,6 +107,8 @@ You can (and should) use a linter with:
 npx ng lint
 ```
 
+You can read the documentation in `docs/_build/html/index.html`
+
 ## 🐋 Develop with docker
 
 First, make sure you have the correct npm modules installed:
