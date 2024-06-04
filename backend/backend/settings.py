@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'sender.apps.SenderConfig',
     'receiver.apps.ReceiverConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

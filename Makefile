@@ -10,11 +10,11 @@ build-progress:
 down:
 	docker-compose down --volumes
 
-run:
-	make down && docker-compose up
+up:
+	make down && docker-compose up --build
 
 
-run-d:
+up-d:
 	make down && docker-compose up -d
 
 stop:

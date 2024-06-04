@@ -45,3 +45,12 @@ python3 manage.py test
 ## Django
 
 Django is a feature rich framework, to learn more, check out my notes when learning about django in 'notes/setting-up.md`
+
+## Celery
+
+The application uses celery to manage tasks. Basically, for any kind of computation, we call a task that will be executed bu a worker asynchronously. All the tasks and the Celery configuration is inside `celeryApp`.
+
+To run a worker, use the following command:
+```bash
+celery -A celeryApp worker -l INFO
+```

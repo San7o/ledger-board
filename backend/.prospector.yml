@@ -16,10 +16,6 @@ ignore-paths:
   - sender/views/__init__.py
   - sender/utils/__init__py
   - sender/tests/__init__.py
-  - polls/migrations
-  - polls/admin.py
-  - polls/apps.py
-  - polls/__init__.py
 
 pydocstyle:
   disable:

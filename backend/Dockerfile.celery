@@ -1,0 +1,9 @@
+# Celery docker file
+
+FROM python:3.11-bookworm
+
+WORKDIR /home/docker/app
+
+RUN python3 -m pip install celery[redis] kafka-python
+
+CMD celery -A celeryApp worker -l INFO

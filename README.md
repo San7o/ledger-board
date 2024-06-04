@@ -34,10 +34,11 @@ The application uses the following technologies:
     - [x] Static content server for frontend
     - [x] Proxy
 - [x] `database`: [Redis](https://redis.io/)
+- [x] `task management`: [Celery](https://docs.celeryq.dev/en/stable/)
 - [x] `structured logging`: [python-json-logger](https://pypi.org/project/python-json-logger/)
 - [x] `linter`: [Prospector](https://github.com/landscapeio/prospector) + [ESLint](https://eslint.org/)
 - [x] `unit tests`
-- [x] `documentation`: Sphinx
+- [x] `documentation`: [Sphinx](https://www.sphinx-doc.org/en/master/)
 - [x] `big data`: [Spark](https://spark.apache.org/), [kafka](https://kafka.apache.org/)
 - [x] full `github` workflow with issues, roadmap and milestones
 
@@ -83,6 +84,11 @@ For production, use gunicorn + uvicorn:
 ```bash
 gunicorn -c gunicorn.conf.py backend.asgi -k uvicorn.worker.UvicornWorker
 ```
+You will also need a Celery worker to handle tasks:
+```bash
+celery -A celeryApp worker -l INFO
+```
+
 [Prospector](https://github.com/landscapeio/prospector) is used as a static code analyzer and linter for python, simply run:
 ```bash
 prospector

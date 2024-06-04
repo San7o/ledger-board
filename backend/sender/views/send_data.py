@@ -2,19 +2,12 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from sender.utils.checks import check_fields, check_currency, check_date, check_amount
-from sender.utils.SenderClass import SenderClass
+from celeryApp.SenderClass import SenderClass
 import json
 import logging
 
 # Create a logger object
 logger = logging.getLogger('django')
-
-# Create a sender object
-sender = None
-try:
-    sender = SenderClass()
-except Exception as e:
-    logger.error(e)
 
 @csrf_exempt
 async def send_data(request):
@@ -63,13 +56,8 @@ async def send_data(request):
                 return JsonResponse({"message": "Invalid amount."},
                                     status=400)
 
-            # Check that the sender object is not None 
-            if sender is None:
-                return JsonResponse({"message": "Error sending data."},
-                                    status=500)
-
-            # Send the data to the server
-            if not sender.send("transactions", json.dumps(data)):
+            # Call the celery task to send the data asynchronously
+            if not SenderClass.send.delay("transactions", json.dumps(data)):
                 return JsonResponse({"message": "Error sending data."},
                                     status=500)
 
