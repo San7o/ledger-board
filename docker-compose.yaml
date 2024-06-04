@@ -4,9 +4,7 @@ services:
   backend:
     build: ./backend
     user: "${UID}:${GID}"
-    networks:
-      ledger-board-network:
-        ipv4_address: ${LEDGER_BOARD_BACKEND}
+    network_mode: "host"
     ports:
       - "8000:8000"
     volumes:

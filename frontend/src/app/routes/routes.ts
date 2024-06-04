@@ -4,6 +4,7 @@
 import { Routes } from '@angular/router';
 import { GreetComponent } from '../components/greetComponent';
 import { HomeComponent } from '../components/homeComponent';
+import { SendComponent } from '../components/sendComponent';
 
 export const routes: Routes = [
     {
@@ -16,4 +17,9 @@ export const routes: Routes = [
         title: 'Greet',
         component: GreetComponent,
     },
+    {
+        path: 'send',
+        title: 'Send',
+        component: SendComponent,
+    }
 ];

@@ -9,13 +9,15 @@ import logging
 # Create a logger object
 logger = logging.getLogger('django')
 
+
 @csrf_exempt
 async def send_data(request):
     """Send data API endpoint.
        Method: POST
 
        Given the trnsaction data, this view will send it to the server.
-       The data must be sent in teh body and must follow the following json format:
+       The data must be sent in teh body and must follow the following
+       json format:
 
        {
            date: "YYYY/MM/DD",
@@ -25,7 +27,7 @@ async def send_data(request):
            expenses_account: "Expenses:Account",
            assets_account: "Assets:Account"
         }
-        
+
         Description:
         - date: The date of the transaction.
         - payee: The name of the payee.
