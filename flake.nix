@@ -59,6 +59,12 @@
           pkgs.tig         # git commit viewer
           pkgs.cmake       # build system
 
+
+          # C libraries needed for some python packages
+          pkgs.zlib
+          pkgs.libGL
+          pkgs.glib
+
         ];
 
         # Run this command, only after creating the
@@ -68,6 +74,8 @@
           pip install -r backend/requirements.txt
         '';
 
+
+        LD_LIBRARY_PATH = "${pkgs.zlib}/lib:${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.libGL}/lib:${pkgs.glib.out}/lib";
 
         # Now we can execute any commands within
         # the virtual environment.

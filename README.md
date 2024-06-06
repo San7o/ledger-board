@@ -197,3 +197,4 @@ Note: We are not using a database inside the local cluster, since It's much more
 You can use other usefil tools like:
 - `pre-commit` to run checks automatically before committing
 - `act` to simulate github actions
+- `jupyter lab` to open an interactive web notebook for python
