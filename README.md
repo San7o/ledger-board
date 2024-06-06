@@ -40,7 +40,8 @@ The application uses the following technologies:
 - [x] `linter`: [Prospector](https://github.com/landscapeio/prospector) + [ESLint](https://eslint.org/)
 - [x] `unit tests`: Django
 - [x] `documentation`: [Sphinx](https://www.sphinx-doc.org/en/master/)
-- [x] `big data`: [Spark](https://spark.apache.org/), [kafka](https://kafka.apache.org/)
+- [x] `stream processing`: [Spark](https://spark.apache.org/)
+- [x] `stream producer / consumer`: [kafka](https://kafka.apache.org/)
 - [x] full `github` workflow with issues, roadmap and milestones
 
 Deploy / Infrastructure
