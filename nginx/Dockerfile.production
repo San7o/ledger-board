@@ -1,0 +1,11 @@
+FROM nginx:latest
+
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/ledger-board.production.conf /etc/nginx/sites-available/ledger-board.conf
+
+RUN mkdir /etc/nginx/sites-enabled
+RUN ln -s /etc/nginx/sites-available/ /etc/nginx/sites-enabled/
+
+COPY ./frontend/dist/frontend /var/www/frontend
+
+EXPOSE 80 80

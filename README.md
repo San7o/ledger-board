@@ -28,6 +28,7 @@ The view page will show a prediction of the next transactions
 The application uses the following technologies:
 - [x] `backend`: [Django](https://docs.djangoproject.com/en/5.0/)
 - [x] `backend ASGI`: [Uvicorn](https://www.uvicorn.org/)
+- [ ] `API query`: [Graphene](https://github.com/graphql-python/graphene) (GraphQL)
 - [x] `frontend`: [Angular](https://angular.dev/)
 - [x] `Nginx`:
     - [x] Cache
@@ -37,7 +38,7 @@ The application uses the following technologies:
 - [x] `task management`: [Celery](https://docs.celeryq.dev/en/stable/)
 - [x] `structured logging`: [python-json-logger](https://pypi.org/project/python-json-logger/)
 - [x] `linter`: [Prospector](https://github.com/landscapeio/prospector) + [ESLint](https://eslint.org/)
-- [x] `unit tests`
+- [x] `unit tests`: Django
 - [x] `documentation`: [Sphinx](https://www.sphinx-doc.org/en/master/)
 - [x] `big data`: [Spark](https://spark.apache.org/), [kafka](https://kafka.apache.org/)
 - [x] full `github` workflow with issues, roadmap and milestones

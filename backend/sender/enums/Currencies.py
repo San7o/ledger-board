@@ -5,6 +5,7 @@ The file contains:
 """
 from enum import Enum
 
+
 class Currencies(Enum):
 
     """Enum for the allowed currencies."""
@@ -16,3 +17,4 @@ class Currencies(Enum):
     CHF = "CHF"       # Swiss Franc
     CAD = "CAD"       # Canadian Dollar
     AUD = "AUD"       # Australian Dollar
+    OTHER = "Other"   # Other currency

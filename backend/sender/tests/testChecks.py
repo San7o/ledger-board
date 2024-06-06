@@ -1,10 +1,19 @@
 
 from django.test import TestCase
-from sender.utils.checks import *
-import json
+from sender.utils.checks import check_date, check_amount, check_fields, check_currency
+
 
 class TestChekcs(TestCase):
-    
+    """Tests for the checks functions.
+
+    Functions:
+        - test_check_date
+        - test_check_amount
+        - test_check_fields
+        - test_check_currency
+
+    """
+
     def test_check_date(self):
         """The date must be in the format YYYY/MM/DD."""
         # True cases
@@ -18,7 +27,7 @@ class TestChekcs(TestCase):
         self.assertFalse(check_date("01/01/2000"))
         self.assertFalse(check_date("01/01/00"))
         self.assertFalse(check_date("01-01-2000"))
-    
+
         # Wrong year
         self.assertFalse(check_date("199/10/10"))
         self.assertFalse(check_date("19999/10/10"))
@@ -128,11 +137,13 @@ class TestChekcs(TestCase):
         self.assertTrue(check_currency("CHF"))
         self.assertTrue(check_currency("CAD"))
         self.assertTrue(check_currency("AUD"))
-         
+        self.assertTrue(check_currency("Other"))
+
         self.assertTrue(check_currency("$"))
         self.assertTrue(check_currency("€"))
         self.assertTrue(check_currency("£"))
         self.assertTrue(check_currency("¥"))
+        self.assertTrue(check_currency("OTHER"))
 
         # False cases
         self.assertFalse(check_currency(""))

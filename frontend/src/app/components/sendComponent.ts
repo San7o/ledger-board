@@ -17,7 +17,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-root',
   template: `
 
-    <h1>Record your transaction</h1>
+  <!-- sample form
+    <h1 class="text-3xl font-bold underline" >Record your transaction</h1>
 
     <form [formGroup]="sendForm"
           (ngSubmit)="handleSubmit()">
@@ -57,7 +58,143 @@ import { RouterLink } from '@angular/router';
     </form>
     <p>{{ info_message }}</p><br>
 
-    <a routerLink="/">Torna alla Home</a>
+   -->
+
+
+<!-- form with tailwindcss https://v1.tailwindcss.com/components/forms -->
+
+<!-- centre the form -->
+<div class="flex items-center justify-center min-h-screen">
+
+
+<form
+    [formGroup]="sendForm"
+    (ngSubmit)="handleSubmit()"
+    class="w-full max-w-lg"
+>
+
+
+  <p
+     class="block uppercase tracking-wide text-gray-700 text-3xl font-bold mb-2" >
+        Record your transaction
+  </p><br>
+
+  <!-- two elements -->
+  <div class="flex flex-wrap -mx-3 mb-6">
+
+  <!-- date -->
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="date">
+      Date
+      </label>
+      <input
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+        formControlName="date"
+        type="date"
+        required
+      >
+    </div>
+
+    <!-- payee -->
+    <div class="w-full md:w-1/2 px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="payee">
+        Payee
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="payee" type="text" placeholder="McDonald" required>
+    </div>
+  </div>
+
+
+  <!-- two elements -->
+  <div class="flex flex-wrap -mx-3 mb-2">
+
+    <!-- amount -->
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+        Amount
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="amount" type="text" placeholder="100.00">
+    </div>
+    
+    <!-- currency -->
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+        Currency
+      </label>
+      <div class="relative">
+        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="currency">
+
+    <!--
+
+    USD = "$"         # United States Dollar
+    EUR = "€"         # Euro
+    GBP = "£"         # British Pound
+    JPY = "¥"         # Japanese Yen
+    CHF = "CHF"       # Swiss Franc
+    CAD = "CAD"       # Canadian Dollar
+    AUD = "AUD"       # Australian Dollar
+
+    -->
+          <option>$</option>
+          <option>€</option>
+          <option>£</option>
+          <option>¥</option>
+          <option>CHF</option>
+          <option>CAD</option>
+          <option>AUD</option>
+          <option>Other</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- assets account -->
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="assets_account">
+        Assets Account
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="assets_account" type="text" placeholder="">
+      <p class="text-gray-600 text-xs italic">From where you are withdrawing money</p>
+    </div>
+  </div>
+
+
+  <!-- expenses account -->
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="assets_account">
+        Expenses Account
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="expenses_account" type="text" placeholder="">
+      <p class="text-gray-600 text-xs italic">Where is the transaction going</p>
+    </div>
+  </div>
+
+
+  <!-- submit button -->
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <button class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 text-blue-500 hover:text-blue-800" type="submit">
+        Submit</button>
+    </div>
+  </div>
+      
+  <p class="text-red-500 text-xs italic">{{ info_message }}</p><br>
+
+    <!-- home button -->
+    <a class="block uppercase tracking-wide text-gray-700 hover:text-blue-800  text-xl font-bold mb-2" routerLink="/">Torna alla Home</a>
+
+</form>
+
+
+</div>
+
+
   `,
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink],

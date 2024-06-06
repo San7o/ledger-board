@@ -21,7 +21,7 @@ export class GreetComponent {
 
     // Make request to backend
     callApi(): void {
-        this.http.get<JSON>("/api/greet").subscribe((data: JSON) => {
+        this.http.get<JSON>("/api/sender/greet").subscribe((data: JSON) => {
             this.message = JSON.stringify(data);
             console.log(data);
         },

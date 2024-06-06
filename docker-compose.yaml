@@ -17,15 +17,11 @@ services:
   frontend:
     build: ./frontend
     user: "${UID}:${GID}"
-    networks:
-      ledger-board-network:
-        ipv4_address: ${LEDGER_BOARD_FRONTEND}
+    network_mode: "host"
     ports:
       - "4200:4200"
     volumes:
       - ./frontend:/home/docker/app
-    environment:
-      - BACKEND_IP=${LEDGER_BOARD_BACKEND}
 
   nginx:
     build: ./nginx
@@ -35,6 +31,9 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     tty: true
+    depends_on:
+      - backend
+      - frontend
 
   redis:
     build: ./redis

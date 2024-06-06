@@ -7,29 +7,21 @@ services:
       dockerfile: Dockerfile.production
     ports:
       - "8000:8000"
-    user: "${UID}:${GID}"
-    networks:
-      ledger-board-network:
-        ipv4_address: ${LEDGER_BOARD_BACKEND}
-
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.production
-    ports:
-      - "4200:4200"
-    networks:
-      ledger-board-network:
-        ipv4_address: ${LEDGER_BOARD_FRONTEND}
-    environment:
-      - BACKEND_IP=${LEDGER_BOARD_BACKEND}
+    network_mode: "host"
+    depends_on:
+      - celery
+      - kafka
 
   nginx:
-    build: ./nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile.production
     ports:
       - "80:80"
     network_mode: "host"
     tty: true
+    depends_on:
+      - backend
 
   redis:
     build: ./redis
